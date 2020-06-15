@@ -16,12 +16,24 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader, 'css-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpg)/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            esModule: false,
+                            name:'images/[name].[ext]',
+                        }
+                    }
+                ]
             }
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename:'./stylesheets/main.css',
+            filename: './stylesheets/main.css',
         }),
         new HtmlWebpackPlugin({
             template: './src/templates/index.html',
