@@ -12,9 +12,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css/,
+                test: /\.(css|sass|scss)/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader'
+                    MiniCssExtractPlugin.loader, 'css-loader',
+                    {
+                        loader:'sass-loader'
+                    }
                 ]
             },
             {
@@ -26,7 +29,7 @@ module.exports = {
                             esModule: false,
                             name: 'images/[emoji][name].[ext]',
                         }
-                    }
+                    },
                 ]
             },
             {
@@ -40,7 +43,7 @@ module.exports = {
                         options: {
                             pretty:true
                         }
-                    }
+                    },
                 ]
             }
         ]
